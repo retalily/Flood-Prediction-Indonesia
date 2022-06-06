@@ -1,0 +1,24 @@
+
+#Data Preprocessing
+library(readxl)
+
+#fill missing data 
+dataset <- read_excel('/Users/a/Documents/Thesis/Rainfall Data/All_data_x.xlsx')
+summary (dataset)
+
+dataset$Streamflow = ifelse(is.na(dataset$Streamflow), ave(dataset$Streamflow, FUN = function(x) mean(x, na.rm = TRUE )), dataset$Streamflow)
+dataset$Forest_Ratio = ifelse(is.na(dataset$Forest_Ratio), ave(dataset$Forest_Ratio, FUN = function(x) mean(x, na.rm = TRUE )), dataset$Forest_Ratio)
+
+write.csv(dataset, "/Users/a/Documents/Thesis/Rainfall Data/dataset.csv")
+
+#outlier elimination
+dat <- read.csv("/Users/a/Documents/Thesis/Rainfall Data/dataset.csv")
+library(outliers)
+data <- grubbs.test(dat$RR)
+data
+
+#zscore
+zscale<-(dat$RR-mean(dat$RR))/sd(dat$RR)
+zscale
+plot(zscale, type="o", col="red")
+
