@@ -1,0 +1,287 @@
+#Predict Flood for Indonesia June 2020
+
+library(xlsx)     
+
+model <- readRDS("modelRF.rds")
+
+ac <- read.csv('/Users/a/Documents/Prob RF/Aceh.csv')
+
+# Apply model for prediction
+prediction <- predict(model, ac, type="prob", predict.all=TRUE  )
+
+write.xlsx(prediction, "/Users/a/Documents/Prob RF/Aceh_Result%.xlsx")
+
+model <- readRDS("modelRF.rds")
+bali <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Bali.csv')
+
+# Apply model for prediction
+prediction <-predict(model, bali, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Bali_Result%.csv")
+
+model <- readRDS("modelRF.rds")
+bangka <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Bangka Belitung.csv')
+
+# Apply model for prediction
+prediction <-predict(model, bangka, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Bangka_Result%.csv")
+
+model <- readRDS("modelRF.rds")
+ntb <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/NTB.csv')
+
+# Apply model for prediction
+prediction <-predict(model, ntb, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/NTB_Result%.csv")
+
+
+
+model <- readRDS("modelRF.rds")
+ntt <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/NTT.csv')
+
+# Apply model for prediction
+prediction <-predict(model, ntt, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/NTT_Result%.csv")
+
+model <- readRDS("modelRF.rds")
+banten <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Banten.csv')
+
+# Apply model for prediction
+prediction <-predict(model, banten, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Banten_Result%.csv")
+
+model <- readRDS("modelRF.rds")
+bkl <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Bengkulu.csv')
+
+# Apply model for prediction
+prediction <-predict(model, bkl, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Bengkulu_Result%.csv")
+
+model <- readRDS("modelRF.rds")
+gr <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Gorontalo.csv')
+
+# Apply model for prediction
+prediction <-predict(model, gr, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Gorontalo_Result%.csv")
+
+model <- readRDS("modelRF.rds")
+jkt <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Jakarta.csv')
+
+# Apply model for prediction
+prediction <-predict(model, jkt, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Jakarta_Result%.csv")
+
+
+model <- readRDS("modelRF.rds", type="prob", predict.all=TRUE)
+jmb <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Jambi.csv')
+
+# Apply model for prediction
+prediction <-predict(model, jmb, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Jambi_Result%.csv")
+
+model <- readRDS("modelRF.rds")
+jb <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Jawa Barat.csv')
+
+# Apply model for prediction
+prediction <-predict(model, jb, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Jawa Barat_Result%.csv")
+
+model <- readRDS("modelRF.rds")
+jt <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Jawa Tengah.csv')
+
+# Apply model for prediction
+prediction <-predict(model, jt, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Jawa Tengah_Result%.csv")
+
+model <- readRDS("modelRF.rds")
+jm <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Jawa Timur.csv')
+
+# Apply model for prediction
+prediction <-predict(model, jm, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Jawa Timur_Result%.csv")
+
+model <- readRDS("modelRF.rds")
+kb <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Kal Barat.csv')
+
+# Apply model for prediction
+prediction <-predict(model, kb, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Kal Barat_Result%.csv")
+
+model <- readRDS("modelRF.rds")
+ks <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Kal Selatan.csv')
+
+# Apply model for prediction
+prediction <-predict(model, ks, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Kal Selatan_Result%.csv")
+
+
+model <- readRDS("modelRF.rds")
+kt <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Kal Timur.csv')
+
+# Apply model for prediction
+prediction <-predict(model, kt, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Kal Timur_Result%.csv")
+
+
+model <- readRDS("modelRF.rds")
+kg <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Kal Tengah.csv')
+
+# Apply model for prediction
+prediction <-predict(model, kg, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Kal Tengah_Result%.csv")
+
+
+model <- readRDS("modelRF.rds")
+ku <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Kal Utara.csv')
+
+# Apply model for prediction
+prediction <-predict(model, ku, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Kal Utara_Result%.csv")
+
+
+
+model <- readRDS("modelRF.rds")
+lp <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Lampung.csv')
+
+# Apply model for prediction
+prediction <-predict(model, lp, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Lampung_Result%.csv")
+
+model <- readRDS("modelRF.rds")
+mlk <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Maluku.csv')
+
+# Apply model for prediction
+prediction <-predict(model, mlk, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Maluku_Result%.csv")
+
+
+model <- readRDS("modelRF.rds")
+mlk_u <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Maluku Utara.csv')
+
+# Apply model for prediction
+prediction <-predict(model, mlk_u, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Maluku Utara_Result%.csv")
+
+
+
+model <- readRDS("modelRF.rds")
+pp <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Papua.csv')
+
+# Apply model for prediction
+prediction <-predict(model, pp, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Papua_Result%.csv")
+
+
+model <- readRDS("modelRF.rds")
+ppb <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Papua Barat.csv')
+
+# Apply model for prediction
+prediction <-predict(model, ppb, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Papua Barat_Result%.csv")
+
+
+model <- readRDS("modelRF.rds")
+riau <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Riau.csv')
+
+# Apply model for prediction
+prediction <-predict(model, riau, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Riau_Result%.csv")
+
+
+
+model <- readRDS("modelRF.rds")
+sb <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Sul Barat.csv')
+
+# Apply model for prediction
+prediction <-predict(model, sb, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Sul Barat_Result%.csv")
+
+model <- readRDS("modelRF.rds")
+ss <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Sul Selatan.csv')
+
+# Apply model for prediction
+prediction <-predict(model, ss, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Sul Selatan_Result%.csv")
+
+
+model <- readRDS("modelRF.rds")
+st <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Sul Tenggara.csv')
+
+# Apply model for prediction
+prediction <-predict(model, st, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Sul Tenggara_Result%.csv")
+
+model <- readRDS("modelRF.rds")
+sg <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Sul Tengah.csv')
+
+# Apply model for prediction
+prediction <-predict(model, sg, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/TProb RF/Sul Tengah_Result%.csv")
+
+model <- readRDS("modelRF.rds")
+su <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Sul Utara.csv')
+
+# Apply model for prediction
+prediction <-predict(model, su, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Sul Utara_Result%.csv")
+
+
+
+model <- readRDS("modelRF.rds")
+sumu <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Sum Utara.csv')
+
+# Apply model for prediction
+prediction <-predict(model, sumu, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Sum Utara_Result%.csv")
+
+model <- readRDS("modelRF.rds")
+sbu <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Sum Barat.csv')
+
+# Apply model for prediction
+prediction <-predict(model, sbu, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Sum Barat_Result%.csv")
+
+model <- readRDS("modelRF.rds")
+ssu <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Sum Selatan.csv')
+
+# Apply model for prediction
+prediction <-predict(model, ssu, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Sum Selatan_Result%.csv")
+
+model <- readRDS("modelRF.rds")
+ygy <- read.csv('/Users/a/Documents/Thesis/RandomForest/Input Pred/Yogyakarta.csv')
+
+# Apply model for prediction
+prediction <-predict(model, ygy, type="prob", predict.all=TRUE) 
+
+write.csv(prediction, "/Users/a/Documents/Prob RF/Yogyakarta_Result%.csv")
+ 
