@@ -1,0 +1,69 @@
+ 
+#Developing Model
+library(randomForest)
+library(caret)
+
+# Importing data set
+data <- read.csv('/Users/a/Documents/Thesis/RandomForest/data.csv')
+
+# Performs stratified random split of the data set
+set.seed(1234)
+TrainingIndex <- createDataPartition(data$Flood, p=0.8, list = FALSE)
+TrainingSet <- data[TrainingIndex,] # Training Set
+TestingSet <- data[-TrainingIndex,] # Test Set
+
+write.csv(TrainingSet, "train.csv")
+write.csv(TestingSet, "test.csv")
+
+TrainSet <- read.csv("train.csv", header = TRUE)
+TrainSet <- TrainSet[,-1]
+
+
+# Building Random forest model
+
+model <- randomForest(as.factor(Flood)~ ., data = TrainSet, ntree = 500, mtry= 3, importance = TRUE)
+
+# Save model to RDS file
+saveRDS(model, "modelRF.rds")
+
+#Evaluation
+read.model <- readRDS("modelRF.rds")
+
+# Feature importance
+Importance <- varImp(model)
+plot(Importance)
+plot(Importance, col = "red")
+
+#Evaluation
+p1 <- predict(model, TrainSet)
+confusionMatrix(p1, as.factor(TrainSet$Flood))
+
+p1 <- predict(model, TestingSet)
+confusionMatrix(p1, as.factor(TestingSet$Flood))
+
+plot(model)
+
+#OOB Error
+oob.err.data <- data.frame(
+  Trees = rep(1:nrow(model$err.rate), 3), 
+  Type = rep(c("OOB","Flood","No Flood"), each = nrow(model$err.rate)),
+  Error = c(model$err.rate[,"OOB"], model$err.rate[,"Flood"], model$err.rate[,"No Flood"]))
+ggplot(data = oob.err.data, aes(x = Trees, y= Error)) + geom_line(aes(color = Type))
+
+#ROC and Area Under Curve (AUC)
+rf_prediction <- predict(model, TestingSet, type = "prob")
+
+library(pROC)
+ROC_rf <- roc(TestingSet$Flood, rf_prediction[,2])
+
+# Area Under Curve (AUC) for each ROC curve (higher -> better)
+ROC_rf_auc <- auc(ROC_rf)
+
+plot(ROC_rf, col = "green", main = "ROC For Random Forest")
+paste("Area under curve of random forest: ", ROC_rf_auc)
+
+library(randomForest)
+library(ggplot2)
+hist(treesize(model),
+     main = "No. of Nodes for the Trees",
+     col = "green")
