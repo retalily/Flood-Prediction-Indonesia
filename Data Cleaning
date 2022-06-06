@@ -17,8 +17,15 @@ library(outliers)
 data <- grubbs.test(dat$RR)
 data
 
+#normalization
+
+library(clusterSim)
+data(data)
+z1 <- data.Normalization(data,normalization="column",na.rm=FALSE)
+z2 <- data.Normalization(data,normalization="row",na.rm=FALSE)
+
 #zscore
-zscale<-(dat$RR-mean(dat$RR))/sd(dat$RR)
+zscale<-(data$RR-mean(data$RR))/sd(data$RR)
 zscale
 plot(zscale, type="o", col="red")
 
